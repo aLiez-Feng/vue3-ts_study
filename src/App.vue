@@ -1,24 +1,15 @@
 <template>
-  <div class="app">
-    <router-view></router-view>
+  <div class="nav">
+    <router-view />
+    <van-tabbar   route>
+      <van-tabbar-item icon="home-o" to="/">标签</van-tabbar-item>
+      <van-tabbar-item icon="search" to="/mine">课程</van-tabbar-item>
+      <van-tabbar-item icon="friends-o" to="/profile">个人中心</van-tabbar-item>
+    </van-tabbar>
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
-
-export default defineComponent({
-  name: 'App',
-  props: {
-    name: {
-      type: String
-    }
-  }
-})
-</script>
-
-<style lang="less">
-.app {
-  height: 100%;
+<style lang="scss">
+.nav {
 }
 </style>

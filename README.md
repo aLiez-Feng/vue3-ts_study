@@ -1,36 +1,19 @@
-# Vue3 + Ts 学习
+# v3ts
 
-## 安装依赖
-
+## Project setup
 ```
 npm install
 ```
 
-### 启动开发环境
-
+### Compiles and hot-reloads for development
 ```
 npm run serve
 ```
 
-### 项目打包
-
+### Compiles and minifies for production
 ```
 npm run build
 ```
 
-### 测试和修复文件
-
-```
-npm run lint
-```
-
-### 自定义配置
-
+### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
-
-### 提交代码(规范)
-
-```
-  git add .
-  npx cz
-```
