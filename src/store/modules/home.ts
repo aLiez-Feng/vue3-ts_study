@@ -1,6 +1,7 @@
-import { CATEGORY_TYPES, IHomeState } from "@/typings/homt";
+import { CATEGORY_TYPES, IHomeState } from "@/typings/home";
 import { Module } from "vuex";
 import { IGlobalState } from "../index";
+import * as Types from "../action-types";
 
 const state: IHomeState = {
   // 定义数据类型。在src 下创建了一个typings 文件夹用来存放ts type
@@ -17,6 +18,12 @@ const state: IHomeState = {
 
 const home: Module<IHomeState, IGlobalState> = {
   namespaced: true,
+  mutations: {
+    //  [Types.SET_CATEGORY] 将所有mutaions 名 放入外部文件
+    [Types.SET_CATEGORY](state, payload: CATEGORY_TYPES) {
+      state.currentCategory = payload;
+    },
+  },
   state,
 };
 

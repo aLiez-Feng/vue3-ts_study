@@ -1,4 +1,4 @@
-import { IHomeState } from "@/typings/homt";
+import { IHomeState } from "@/typings/home";
 import { createStore } from "vuex";
 import home from "./modules/home";
 
