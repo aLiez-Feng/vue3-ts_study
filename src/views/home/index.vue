@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    {{ category }}
     <!-- 首页头部 -->
     <HomeHeader></HomeHeader>
     <!-- 轮播 -->
@@ -10,7 +11,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { IGlobalState } from "@/store";
+import { computed, defineComponent } from "vue";
+import { useStore } from "vuex";
 import HomeHeader from "./components/HomeHeader.vue";
 import HomeList from "./components/HomeList.vue";
 import HomeSwiper from "./components/HomeSwiper.vue";
@@ -23,7 +26,12 @@ export default defineComponent({
     HomeSwiper,
   },
   setup(props, context) {
-    return {};
+    const store = useStore<IGlobalState>();
+    let category = computed(() => {
+      return store.state.home.currentCategory;
+    });
+
+    return { category };
   },
 });
 </script>
