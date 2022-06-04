@@ -1,24 +1,30 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
-import type { RouteRecordRaw } from 'vue-router'
+import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
+import Home from "@/views/home/index.vue";
 
-const routes: RouteRecordRaw[] = [
+const routes: Array<RouteRecordRaw> = [
   {
-    path: '/',
-    redirect: '/login'
+    path: "/",
+    name: "Home",
+    component: Home,
   },
   {
-    path: '/login',
-    component: () => import('@/views/login/login.vue')
+    path: "/mine",
+    name: "Mine",
+    component: () =>
+      import(/* webpackChunkName: "mine" */ "../views/mine/index.vue"),
+    /* webpackChunkName: "about"  代表的是 代码分割依靠的是jsonp ，  加载jsonp的这个js文件的名字就是这里的名字*/
   },
   {
-    path: '/main',
-    component: () => import('@/views/main/main.vue')
-  }
-]
+    path: "/profile",
+    name: "Profile",
+    component: () =>
+      import(/* webpackChunkName: "profile" */ "../views/profile/index.vue"),
+  },
+];
 
 const router = createRouter({
+  history: createWebHistory(process.env.BASE_URL),
   routes,
-  history: createWebHashHistory()
-})
+});
 
-export default router
+export default router;
