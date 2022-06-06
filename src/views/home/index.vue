@@ -6,8 +6,15 @@
       @setCurrentCategory="setCurrentCategory"
     ></HomeHeader>
     <div class="mainContent">
-      <!-- 轮播 -->
-      <HomeSwiper></HomeSwiper>
+      <Suspense>
+        <template #default>
+          <!-- 轮播图 -->
+          <HomeSwiper></HomeSwiper>
+        </template>
+        <template #fallback>
+          <div>loading...</div>
+        </template>
+      </Suspense>
       <!-- 课程列表 -->
       <HomeList></HomeList>
     </div>

@@ -11,7 +11,7 @@ axios.interceptors.request.use((config: AxiosRequestConfig) => {
 // 响应拦截
 axios.interceptors.response.use(
   (response: AxiosResponse) => {
-    if (response.data.error == 1) {
+    if (response.data.status !== 200) {
       return Promise.reject(response.data.data);
     }
     return response.data.data;
