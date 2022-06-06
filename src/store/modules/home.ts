@@ -20,7 +20,7 @@ const home: Module<IHomeState, IGlobalState> = {
   namespaced: true,
   mutations: {
     //  [Types.SET_CATEGORY] 将所有mutaions 名 放入外部文件
-    [Types.SET_CATEGORY](state, payload: CATEGORY_TYPES) {
+    [Types.SET_CATEGORY](state: IHomeState, payload: CATEGORY_TYPES) {
       state.currentCategory = payload;
     },
   },
