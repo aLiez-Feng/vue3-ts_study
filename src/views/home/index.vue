@@ -5,10 +5,19 @@
       :category="category"
       @setCurrentCategory="setCurrentCategory"
     ></HomeHeader>
-    <!-- 轮播 -->
-    <HomeSwiper></HomeSwiper>
-    <!-- 课程列表 -->
-    <HomeList></HomeList>
+    <div class="mainContent">
+      <Suspense>
+        <template #default>
+          <!-- 轮播图 -->
+          <HomeSwiper></HomeSwiper>
+        </template>
+        <template #fallback>
+          <div>loading...</div>
+        </template>
+      </Suspense>
+      <!-- 课程列表 -->
+      <HomeList></HomeList>
+    </div>
   </div>
 </template>
 

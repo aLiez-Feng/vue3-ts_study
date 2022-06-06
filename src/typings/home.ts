@@ -17,7 +17,7 @@ export interface ILesson {
 }
 
 export interface ILessons {
-  hasMore: false; // 更多
+  hasMore: boolean; // 更多
   isLoading: boolean; // 加载？
   offset: number; //位置
   limit: number; // 页条数
