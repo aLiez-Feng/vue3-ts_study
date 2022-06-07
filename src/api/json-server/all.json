@@ -1,23 +1,38 @@
 {
-  "slider": {
-    "data": [
-      {
-        "id": 1,
-        "url": "https://res.vmallres.com/uomcdn/CN/cms/202206/9FF33D00B44E2464741E96DF2F0AA222.jpg"
-      },
-      {
-        "id": 2,
-        "url": "https://res.vmallres.com/uomcdn/CN/cms/202205/10B431595BF0879842A3CDE32D5592D1.jpg"
-      },
-      {
-        "id": 3,
-        "url": "https://res.vmallres.com/uomcdn/CN/cms/202206/14E41BBDB24226D8D1CB70C096013455.jpg"
-      },
-      {
-        "id": 4,
-        "url": "https://res.vmallres.com/uomcdn/CN/cms/202206/8E5E1CFED312C9285D5329879DA6D2A4.png"
-      }
-    ],
-    "status": 200
-  }
+  "slider": [
+    {
+      "id": 1,
+      "url": "https://res.vmallres.com/uomcdn/CN/cms/202206/9FF33D00B44E2464741E96DF2F0AA222.jpg"
+    },
+    {
+      "id": 2,
+      "url": "https://res.vmallres.com/uomcdn/CN/cms/202205/10B431595BF0879842A3CDE32D5592D1.jpg"
+    },
+    {
+      "id": 3,
+      "url": "https://res.vmallres.com/uomcdn/CN/cms/202206/14E41BBDB24226D8D1CB70C096013455.jpg"
+    },
+    {
+      "id": 4,
+      "url": "https://res.vmallres.com/uomcdn/CN/cms/202206/8E5E1CFED312C9285D5329879DA6D2A4.png"
+    }
+  ],
+  "lessonList": [
+    {
+      "category": "NODE",
+      "url": ""
+    },
+    {
+      "category": "VUE",
+      "url": ""
+    },
+    {
+      "category": "NODE",
+      "url": ""
+    },
+    {
+      "category": "NODE",
+      "url": ""
+    }
+  ]
 }

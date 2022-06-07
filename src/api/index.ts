@@ -12,9 +12,9 @@ axios.interceptors.request.use((config: AxiosRequestConfig) => {
 axios.interceptors.response.use(
   (response: AxiosResponse) => {
     if (response.data.status !== 200) {
-      return Promise.reject(response.data.data);
+      return Promise.reject(response.data);
     }
-    return response.data.data;
+    return response.data;
   },
   (err) => {
     if (err) {

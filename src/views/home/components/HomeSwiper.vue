@@ -36,6 +36,6 @@ export default defineComponent({
 <style scoped lang="scss">
 .swipe_item {
   width: 100%;
-  height: 150px;
+  height: 20%;
 }
 </style>
