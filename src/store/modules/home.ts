@@ -1,4 +1,4 @@
-import { CATEGORY_TYPES, IHomeState, ILessons, ISliders } from "@/typings/home";
+import { CATEGORY_TYPES, IHomeState, ILesson, ISliders } from "@/typings/home";
 import { Module, ActionContext } from "vuex";
 import { IGlobalState } from "../index";
 import * as Types from "../action-types";
@@ -9,9 +9,10 @@ const state: IHomeState = {
   currentCategory: CATEGORY_TYPES.ALL,
   sliders: [],
   lessons: {
-    hasMore: false, // 更多
+    id: "",
+    hasMore: true, // 更多
     isLoading: false, // 加载？
-    offset: 0, //位置
+    offset: 1, //位置
     limit: 5, // 页条数
     list: [], // 列表
   },
@@ -30,9 +31,13 @@ const home: Module<IHomeState, IGlobalState> = {
     [Types.SET_LOADING](state: IHomeState, payload: boolean) {
       state.lessons.isLoading = payload;
     },
+    [Types.CLEAR_HOME_LIST](state: IHomeState, payload: boolean) {
+      if (payload === true) state.lessons.list = [];
+    },
     [Types.SET_LESSON_LIST](state: IHomeState, payload) {
       let newArr = state.lessons.list.concat(payload);
       state.lessons.list = newArr;
+      // state.lessons.hasMore = state.lessons.list.length === payload.total;
     },
   },
   actions: {
@@ -45,19 +50,24 @@ const home: Module<IHomeState, IGlobalState> = {
         Promise.reject(error);
       }
     },
-    async [Types.SET_LESSON_LIST]({ commit }: ActionContext<IHomeState, any>) {
+    async [Types.SET_LESSON_LIST](
+      { commit }: ActionContext<IHomeState, any>,
+      isClear: boolean
+    ) {
       if (state.lessons.isLoading) return;
       if (!state.lessons.hasMore) return;
       try {
         // 修改加载状态标识
         commit(Types.SET_LOADING, true);
 
-        let lessons = await getLessons<ILessons>(
+        let lessons = await getLessons<ILesson>(
           state.currentCategory,
           state.lessons.offset,
           state.lessons.limit
         );
 
+        console.log(isClear);
+        commit(Types.CLEAR_HOME_LIST, isClear);
         commit(Types.SET_LESSON_LIST, lessons);
         commit(Types.SET_LOADING, false);
       } catch (error) {
