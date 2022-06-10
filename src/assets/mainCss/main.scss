@@ -1,7 +1,8 @@
 /* 除头部外的内容区 */
 .mainContent {
-  margin-top: 65px;
-  height: calc(100% - 65px - 50px);
-  margin-bottom: 50px;
-  overflow: auto;
+  width: 100%;
+  position: absolute;
+  top: 65px;
+  bottom: 50px;
+  overflow-y: auto;
 }
